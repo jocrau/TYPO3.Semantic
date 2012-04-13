@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="TYPO3.Semantic" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="tx_semantic_domain_model_sparql_query.name" xml:space="preserve">
+				<source>Query Name</source>
+			</trans-unit>
+			<trans-unit id="tx_semantic_domain_model_sparql_query.endpoint" xml:space="preserve">
+				<source>SPARQL Endpoint</source>
+			</trans-unit>
+			<trans-unit id="tx_semantic_domain_model_sparql_query.namespaces" xml:space="preserve">
+				<source>Namespaces</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

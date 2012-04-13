@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Index view of Query controller</title> 
-		<f:base />
-	</head>
-	<body>
-		<h1>A freshly created Fluid template!</h1>
-		<p>Some data set by the controller:</p>
-		<ul>
-			
-			<f:for each="{foos}" as="foo">
-			<li>{foo}</li>
-			</f:for>
-			
-		</ul>
-	</body>
-</html>
+<f:layout name="default" />
+<f:section name="main">
+
+<f:flashMessages />
+
+<table>
+	<f:for each="{queries}" as="query">
+		<tr>
+			<td>{query.name}</td>
+			<td><f:link.action controller="Content" action="render" arguments="{query : query}">Execute</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{query : query}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{query : query}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Query</f:link.action>
+</f:section>

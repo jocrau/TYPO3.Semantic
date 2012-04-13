@@ -1,5 +1,5 @@
 <?php
-namespace TYPO3\Semantic\Controller;
+namespace TYPO3\Semantic\Domain\Model\Sparql;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "TYPO3.Semantic".             *
@@ -7,25 +7,16 @@ namespace TYPO3\Semantic\Controller;
  *                                                                        */
 
 use TYPO3\FLOW3\Annotations as FLOW3;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Standard controller for the TYPO3.Semantic package 
+ * A Query result parser
  *
- * @FLOW3\Scope("singleton")
+ * @FLOW3\Entity
+ * @FLOW3\Transient
  */
-class StandardController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
+class QueryResultParser {
 
-	/**
-	 * Index action
-	 *
-	 * @return void
-	 */
-	public function indexAction() {
-		$this->view->assign('foos', array(
-			'bar', 'baz'
-		));
-	}
 
 }
-
 ?>

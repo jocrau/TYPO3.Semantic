@@ -1,0 +1,45 @@
+html {
+  cursor: text;
+}
+
+.editbox {
+  margin: .4em;
+  padding: 0;
+  font-family: monospace;
+  font-size: 10pt;
+  color: black;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+
+.editbox p {
+  margin: 0;
+}
+
+span.sp-keyword {
+  color: #A61A00;
+}
+
+span.sp-prefixed {
+  color: #7546D7;
+}
+
+span.sp-var {
+  color: #007929;
+}
+
+span.sp-comment {
+  color: #666;
+}
+
+span.sp-literal {
+  color: #9A8D3D;
+}
+
+span.sp-uri {
+  color: #7546D7;
+}
+
+span.sp-operator {
+  color: #A61A00;
+}

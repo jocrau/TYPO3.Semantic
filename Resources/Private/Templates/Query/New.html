@@ -1,0 +1,22 @@
+{namespace s=TYPO3\Semantic\ViewHelpers}
+<f:layout name="default" />
+
+This template displays a NEW form for the current domain object.
+
+<f:section name="main">
+<h2>New Query</h2>
+
+<f:flashMessages />
+
+<f:form method="post" action="create" name="newQuery" object="{newQuery}">
+	<label for="title"><f:translate id="tx_semantic_domain_model_sparql_query.name" /></label><br />
+	<f:form.textfield property="name" style="width: 20em;" /><br />
+	<label for="endpoint"><f:translate id="tx_semantic_domain_model_sparql_query.endpoint" /></label><br />
+	<f:form.select property="endpoint" options="{endpoints}" optionLabelField="name" style="width: 20em;"><select><option>###dummy###</option></select></f:form.select><br />
+	<label for="namespaces"><f:translate id="tx_semantic_domain_model_sparql_query.namespaces" /></label><br />
+	<f:form.select property="namespaces" options="{namespaces}" optionLabelField="prefix" multiple="multiple" size="10" style="width: 20em;"><select><option>###dummy###</option></select></f:form.select><br />
+	<label for="title"><f:translate id="tx_semantic_domain_model_sparql_query.body" /></label><br />
+	<s:form.codeEditor property="body" language="sparql" cols="100" rows="100" /><br />
+	<f:form.submit value="Save" />
+</f:form>
+</f:section>

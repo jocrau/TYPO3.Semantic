@@ -1,0 +1,12 @@
+#                                                                        #
+# Default routes configuration for the Welcome package                   #
+#                                                                        #
+
+-
+  name: 'Query Admin'
+  uriPattern: 'sematic/admin'
+  defaults:
+    '@package':    'TYPO3.Semantic'
+    '@controller': 'Query'
+    '@action':     'index'
+    '@format':     'html'

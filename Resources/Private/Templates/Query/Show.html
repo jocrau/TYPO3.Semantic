@@ -1,0 +1,29 @@
+<f:layout name="default" />
+
+This Template is responsible for creating a single view for a domain object
+
+<f:section name="main">
+<h1>Single View for Query</h1>
+
+<f:flashMessages />
+
+<table>
+	<tr>
+		<td><f:translate id="tx_semantic_domain_model_sparql_query.name" /></td>
+		<td>{query.name}</td>
+	</tr>
+	<tr>
+		<td><f:translate id="tx_semantic_domain_model_sparql_query.body" /></td>
+		<td>{query.body}</td>
+	</tr>
+</table>
+
+<p>
+	<f:link.action action="render" arguments="{query : query}">Execute</f:link.action><br />
+	<f:link.action action="edit" arguments="{query : query}">Edit</f:link.action><br />
+	<f:link.action action="delete" arguments="{query : query}">Delete</f:link.action>
+</p>
+
+<p><f:link.action action="index">Back to listing</f:link.action></p>
+
+</f:section>

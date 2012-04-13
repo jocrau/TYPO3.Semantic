@@ -1,4 +1,4 @@
-{namespace s=Tx_Semantic_ViewHelpers}
+{namespace s=TYPO3\Semantic\ViewHelpers}
 <f:layout name="default" />
 
 This template displays a EDIT form for the current domain object.
@@ -10,13 +10,13 @@ This template displays a EDIT form for the current domain object.
 
 <f:form method="post" action="update" name="query" object="{query}">
 	<label for="title"><f:translate id="tx_semantic_domain_model_sparql_query.name" /> <span class="required">(required)</span></label><br />
-	<f:form.textbox property="name" style="width: 20em;" /><br />
+	<f:form.textfield property="name" style="width: 20em;" /><br />
 	<label for="endpoint"><f:translate id="tx_semantic_domain_model_sparql_query.endpoint" /></label><br />
 	<f:form.select property="endpoint" options="{endpoints}" optionLabelField="name" style="width: 20em;"><select><option>###dummy###</option></select></f:form.select><br />
 	<label for="namespaces"><f:translate id="tx_semantic_domain_model_sparql_query.namespaces" /></label><br />
-	<f:form.select property="namespaces" options="{namespaces}" optionValueField="uid" optionLabelField="prefix" multiple="multiple" size="5" style="width: 20em;"><select><option>###dummy###</option></select></f:form.select><br />
+	<f:form.select property="namespaces" options="{namespaces}" optionLabelField="prefix" multiple="multiple" size="5" style="width: 20em;"><select><option>###dummy###</option></select></f:form.select><br />
 	<label for="title"><f:translate id="tx_semantic_domain_model_sparql_query.body" /></label><br />
-	<s:form.codeEditor property="body" language="sparql" cols="80" rows="25" /><br />
+	<s:form.codeEditor property="body" language="sparql" cols="100" rows="100" /><br />
 	<f:form.submit value="Save" />
 </f:form>
 </f:section>

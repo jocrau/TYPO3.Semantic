@@ -17,6 +17,8 @@ This template displays a EDIT form for the current domain object.
 	<f:form.select property="namespaces" options="{namespaces}" optionLabelField="prefix" multiple="multiple" size="5" style="width: 20em;"><select><option>###dummy###</option></select></f:form.select><br />
 	<label for="title"><f:translate id="tx_semantic_domain_model_sparql_query.body" /></label><br />
 	<s:form.codeEditor property="body" language="sparql" cols="100" rows="100" /><br />
-	<f:form.submit value="Save" />
+	<f:form.button name="cancel" value="Cancel" additionalAttributes="{onclick: 'window.location=\'semantic/admin\''}">Cancel</f:form.button>
+	<f:form.submit name="save" value="Save" />
+
 </f:form>
 </f:section>

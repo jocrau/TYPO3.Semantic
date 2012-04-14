@@ -156,7 +156,7 @@ class Query {
 	/**
 	 * Get the Sparql query's namespaces
 	 *
-	 * @return \Doctrine\Common\Collections\Collection The Sparql query's namespaces
+	 * @return \Doctrine\Common\Collections\Collection<TYPO3\Semantic\Domain\Model\Rdf\RdfNamespace> The Sparql query's namespaces
 	 */
 	public function getNamespaces() {
 		return $this->namespaces;
@@ -165,11 +165,21 @@ class Query {
 	/**
 	 * Sets this Sparql query's namespaces
 	 *
-	 * @param \Doctrine\Common\Collections\Collection $namespaces The Sparql query's namespaces
+	 * @param \Doctrine\Common\Collections\Collection<TYPO3\Semantic\Domain\Model\Rdf\RdfNamespace> $namespaces The Sparql query's namespaces
 	 * @return void
 	 */
 	public function setNamespaces($namespaces) {
 		$this->namespaces = $namespaces;
+	}
+
+	/**
+	 * Executes the query against the SPARQL Endpoint and returns the result
+	 *
+	 * @return \TYPO3\Semantic\Domain\Model\Sparql\QueryResult The query result object
+	 * @api
+	 */
+	public function execute() {
+		return new QueryResult($this);
 	}
 
 }

@@ -9,7 +9,7 @@ namespace TYPO3\Semantic\Tests\Unit\Domain\Model;
 /**
  * Testcase for Namespace
  */
-class NamespaceTest extends \TYPO3\FLOW3\Tests\UnitTestCase {
+class RdfNamespaceTest extends \TYPO3\FLOW3\Tests\UnitTestCase {
 
 	/**
 	 * @test

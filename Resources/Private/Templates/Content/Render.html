@@ -1,0 +1,183 @@
+{namespace s=TYPO3\Semantic\ViewHelpers}
+
+<f:layout name="default"/>
+
+<f:section name="main">
+	<f:flashMessages/>
+	<f:render section="ter" arguments="{results: results}"/>
+</f:section>
+
+<f:section name="raw">
+	<f:for each="{results}" as="result">
+		<f:for each="{result}" as="variable">
+			{variable.value}<br/>
+		</f:for>
+	</f:for>
+</f:section>
+
+
+<f:section name="plainlist">
+	<ol>
+		<f:for each="{results}" as="result">
+			<li><ul>
+				<f:for each="{result}" as="variable">
+					<li>
+						{variable.value}
+					</li>
+				</f:for>
+			</ul>
+			</li>
+		</f:for>
+	</ol>
+</f:section>
+
+<f:section name="plaintable">
+	<table>
+		<f:for each="{results}" as="result">
+			<tr>
+				<f:for each="{result}" as="variable">
+					<td>
+						{variable.value}
+					</td>
+				</f:for>
+			</tr>
+		</f:for>
+	</table>
+</f:section>
+
+<f:section name="contenttable">
+<table class="contenttable contenttable-3">
+<tr class="tr-even tr-0">
+	<f:for each="{results.variables}" as="variable">
+		<td>
+			<f:translate id="{variable}" value="{variable->s:humanize()}"/>
+		</td>
+	</f:for>
+</tr>
+
+<f:if condition="{settings.paginate}">
+	<f:then>
+		<f:widget.paginate objects="{results}" as="paginatedResults">
+			<f:for each="{paginatedResults}" as="result">
+				<f:cycle values="{0: 'odd', 1: 'even'}" as="zebra">
+					<tr class="tr-{zebra}">
+						<f:for each="{result}" as="variable">
+							<td>
+								<f:if condition="{variable->s:isOf(type: 'uri')}">
+									<f:then>
+										<f:link.external uri="{variable.value}">
+											{variable.value}
+										</f:link.external>
+									</f:then>
+									<f:else>
+										{variable.value}
+									</f:else>
+								</f:if>
+							</td>
+						</f:for>
+					</tr>
+				</f:cycle>
+			</f:for>
+		</f:widget.paginate>
+	</f:then>
+	<f:else>
+		<f:for each="{results}" as="result">
+			<f:cycle values="{0: 'odd', 1: 'even'}" as="zebra">
+				<tr class="tr-{zebra}">
+					<f:for each="{result}" as="variable">
+						<td>
+							<f:if condition="{variable->s:isOf(type: 'uri')}">
+								<f:then>
+									<f:link.external uri="{variable.value}">
+										{variable.value}
+									</f:link.external>
+								</f:then>
+								<f:else>
+									{variable.value}
+								</f:else>
+							</f:if>
+						</td>
+					</f:for>
+				</tr>
+			</f:cycle>
+		</f:for>
+	</f:else>
+</f:if>
+</table>
+</f:section>
+
+<f:section name="ter">
+<link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'Css/ter.css')}">
+<div class="tx_terfe2">
+	<div class="tx_terfe2_messages">
+	</div>
+	<div class="tx_terfe2_content">
+		<div class="ter-ext-list-search">
+			<form method="get" action="/extensions/repository/">
+				<input id="ter-ext-list-search-needle" type="text" name="tx_terfe2_pi1[search][needle]">
+				<input class="bu" type="submit" name="" value="Search">
+
+        <span class="ter-ext-list-search-sorting cl">
+          <label for="ter-ext-list-search-sorting">Sort by: </label>
+          <select class="jsSubmit" id="ter-ext-list-search-sorting" name="tx_terfe2_pi1[search][sorting]"><option value="updated">Last update</option>
+			  <option value="downloads">Downloads</option>
+			  <option value="title">Title</option>
+		  </select>
+        </span>
+			</form>
+		</div>
+		<div class="ter-ext-list-count">
+			5364 extensions found
+		</div>
+
+		<f:for each="{results}" as="result">
+			<div class="ter-ext-list-row cl">
+
+				<!-- Headline -->
+				<div class="ter-ext-list-row-head">
+					<img class="ter-ext-icon" alt="Custom scrollbar" src="http://typo3.org/typo3temp/tx_terfe2/images/cscrollbar_1.0.5.gif">
+					<a href="{result.artifact.value}">{result.title.value}</a>
+					<span class="ter-ext-list-row-key">{result.key.value}</span>
+				</div>
+
+				<!-- Content area -->
+				<div class="ter-ext-list-row-regular cl">
+
+					<!-- Description -->
+					<div class="ter-ext-list-row-description">
+						<div class="ter-ext-list-meta">
+							by {result.firstName.value} {result.lastName.value}
+						</div>
+						{result.description.value}
+					</div>
+
+					<!-- General information -->
+					<div class="ter-ext-list-row-info ter-ext-info">
+						<table>
+							<tbody>
+							<tr>
+								<th>Version</th>
+								<td>{result.versionNumber.value} <span class="ter-ext-state ter-ext-state-beta">beta</span></td>
+							</tr>
+							<tr>
+								<th>Last updated</th>
+								<td>April 12, 2012</td>
+							</tr>
+							<tr>
+								<th>Downloads</th>
+								<td>{result.downloads.value}</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="ter-ext-list-row-downloads">
+					<a class="ter-download-icon ter-download-icon-t3x" href="/extensions/repository/download/cscrollbar/1.0.5/t3x/">Download T3X Package</a>
+				</div>
+			</div>
+		</f:for>
+
+	</div>
+</div>
+</f:section>

@@ -9,7 +9,7 @@ namespace TYPO3\Semantic\Tests\Unit\Domain\Model\Sparql;
 /**
  * Testcase for Sparql query
  */
-class SparqlQueryTest extends \TYPO3\FLOW3\Tests\UnitTestCase {
+class QueryTest extends \TYPO3\FLOW3\Tests\UnitTestCase {
 
 	/**
 	 * @test

@@ -60,8 +60,6 @@ class Version20120413160000 extends AbstractMigration {
 	 */
 	public function down(Schema $schema) {
 		$this->abortIf($this->connection->getDatabasePlatform()->getName() != "mysql");
-		$this->addSql("TRUNCATE TABLE `typo3_semantic_domain_model_rdf_rdfnamespace`;");
-
 	}
 }
 

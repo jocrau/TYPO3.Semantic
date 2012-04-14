@@ -37,13 +37,7 @@ class ContentController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
 	 * @param \TYPO3\Semantic\Domain\Model\Sparql\Query $query the Sparql Query to be executed and rendered
 	 */
 	public function renderAction(\TYPO3\Semantic\Domain\Model\Sparql\Query $query) {
-		try {
-			$this->view->assign('results', $query->execute());
-			$content = $this->view->render(); // The query gets executed lazily during render time. Thus, we include the render() method.
-		} catch (\TYPO3\Semantic\Domain\Model\Sparql\Exception\SparqlEndpointException $exception){
-			$content = '';
-		}
-		return $content;
+		$this->view->assign('results', $query->execute());
 	}
 
 }

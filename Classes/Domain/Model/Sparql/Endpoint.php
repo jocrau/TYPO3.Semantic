@@ -117,5 +117,9 @@ class Endpoint {
 		$this->password = $password;
 	}
 
+	function __toString() {
+		return $this->getName() . " (" . $this->getIri() . ")";
+	}
+
 }
 ?>

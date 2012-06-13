@@ -51,5 +51,9 @@ class RdfNamespace {
 		return $this->iri;
 	}
 
+	function __toString() {
+		return $this->getPrefix() . " <" . $this->getIri() . ">";
+	}
+
 }
 ?>

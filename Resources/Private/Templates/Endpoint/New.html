@@ -1,0 +1,18 @@
+{namespace s=TYPO3\Semantic\ViewHelpers}
+<f:layout name="Default" />
+
+This template displays a NEW form for the current domain object.
+
+<f:section name="main">
+<h2>New Endpoint</h2>
+
+<f:flashMessages />
+
+<f:form method="post" action="create" name="newEndpoint" object="{newEndpoint}">
+	<label for="name"><f:translate id="tx_semantic_domain_model_sparql_endpoint.name" /></label><br />
+	<f:form.textfield property="name" style="width: 40em;" /><br />
+	<label for="iri"><f:translate id="tx_semantic_domain_model_sparql_endpoint.iri" /></label><br />
+	<f:form.textfield property="iri" style="width: 40em;" /><br />
+	<f:form.submit name="save" value="Save" />
+</f:form>
+</f:section>

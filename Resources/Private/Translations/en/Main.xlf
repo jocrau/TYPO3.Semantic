@@ -11,6 +11,9 @@
 			<trans-unit id="tx_semantic_domain_model_sparql_query.namespaces" xml:space="preserve">
 				<source>Namespaces</source>
 			</trans-unit>
-		</body>
+			<trans-unit id="tx_semantic_domain_model_sparql_query.body" xml:space="preserve">
+				<source>Query Body</source>
+			</trans-unit>
+		</body>q
 	</file>
 </xliff>

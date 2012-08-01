@@ -13,9 +13,14 @@ This template displays a NEW form for the current domain object.
 	<f:form.textfield property="name" style="width: 40em;" /><br />
 	<label for="endpoint"><f:translate id="tx_semantic_domain_model_sparql_query.endpoint" /></label><br />
 	<f:form.select property="endpoint" options="{endpoints}" style="width: 40em;"><select><option>###dummy###</option></select></f:form.select>
-	<f:link.action controller="Endpoint" action="new" target="_blank">New</f:link.action><br />
+	<div class="newEndpoint">
+		<label for="endpoint"><f:translate id="tx_semantic_domain_model_sparql_endpoint.name" /></label>
+		<input size="20" type="text" name="endpoint[name]" value="" />
+		&nbsp;<label for="endpoint"><f:translate id="tx_semantic_domain_model_sparql_endpoint.iri" /></label>
+		<input size="20" type="text" name="endpoint[iri]" value="" />
+	</div>
 	<label for="namespaces"><f:translate id="tx_semantic_domain_model_sparql_query.namespaces" /></label><br />
-	<f:form.select property="namespaces" options="{namespaces}" multiple="multiple" size="10" style="width: 40em;"><select><option>###dummy###</option></select></f:form.select><br />
+	<f:form.select property="namespaces" options="{namespaces}" multiple="multiple" size="20" style="width: 40em;"><select><option>###dummy###</option></select></f:form.select><br />
 	<label for="title"><f:translate id="tx_semantic_domain_model_sparql_query.body" /></label><br />
 	<s:form.codeEditor property="body" language="sparql" cols="100" rows="100" /><br />
 	<f:form.submit value="Save" />

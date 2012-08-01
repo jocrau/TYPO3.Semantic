@@ -45,7 +45,7 @@ class Query {
 
 	/**
 	 * The endpoint
-	 * @ORM\ManyToOne
+	 * @ORM\ManyToOne(cascade={"persist"})
 	 * @var \TYPO3\Semantic\Domain\Model\Sparql\Endpoint
 	 */
 	protected $endpoint;

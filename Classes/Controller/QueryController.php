@@ -33,6 +33,12 @@ class QueryController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
 	 */
 	protected $namespaceRepository;
 
+	protected function setPropertyMappingConfiguration () {
+		$propertyMappingConfiguration = $this->arguments['query']->getPropertyMappingConfiguration();
+		$propertyMappingConfiguration->forProperty('endpoint')->allowAllProperties();
+		$propertyMappingConfiguration->allowCreationForSubProperty('endpoint');
+	}
+
 	/**
 	 * Displays all Queries
 	 */
@@ -54,8 +60,12 @@ class QueryController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
 	 * Displays a form for creating a new Query
 	 */
 	public function newAction() {
-		$this->view->assign('endpoints', $this->endpointRepository->findAll());
+		$this->view->assign('endpoints', array_merge(array(NULL => "Add New"), $this->endpointRepository->findAll()->toArray()));
 		$this->view->assign('namespaces', $this->namespaceRepository->findAll());
+	}
+
+	public function initializeCreateAction() {
+		$this->setPropertyMappingConfiguration();
 	}
 
 	/**
@@ -76,8 +86,12 @@ class QueryController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
 	 */
 	public function editAction(\TYPO3\Semantic\Domain\Model\Sparql\Query $query) {
 		$this->view->assign('query', $query);
-		$this->view->assign('endpoints', $this->endpointRepository->findAll());
+		$this->view->assign('endpoints', array_merge(array(NULL => "Add New"), $this->endpointRepository->findAll()->toArray()));
 		$this->view->assign('namespaces', $this->namespaceRepository->findAll());
+	}
+
+	public function initializeUpdateAction() {
+		$this->setPropertyMappingConfiguration();
 	}
 
 	/**

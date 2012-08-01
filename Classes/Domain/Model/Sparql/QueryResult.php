@@ -10,8 +10,6 @@ use TYPO3\FLOW3\Annotations as FLOW3;
 
 /**
  * A Query result
- *
- * @FLOW3\Transient
  */
 class QueryResult implements \TYPO3\FLOW3\Persistence\QueryResultInterface {
 
